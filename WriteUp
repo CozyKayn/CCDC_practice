@@ -1,0 +1,41 @@
+CCDC Write-up
+
+ededdneddy machine:
+changed root password to "Tr@v3rs3R3f1ex"
+
+sudo ss -tulpn to search for every single service being ran right now to inventory it:
+1. Mesh Central
+2. Docker
+3. caddy 
+4. ngircd
+5. phpbb (maria DB)
+are the 5 services being ran
+
+public ip: 10.100.111.12
+
+phpbb user: Admin (admin@ponzi.scheme)
+phpbb pass: "Not!Illegal5"
+
+when inside phpbb we disabled flash animations, bb code, and a bunch of stuff inside of it.
+deleted a post made by "user" adminastrator 
+
+next configured mesh central:
+used docker container to find it, used git init to monitor the version history 
+
+copied data from container into a backups folder and checked if the backups are only accessable to the backups folder
+
+ngircd config:
+/etc/ngircd/ngircd.config
+configuring listening IP ports and IP addresses that its listening onto 
+fixing errors inside the config:
+1. MotdPhrase changed to "IRC service" from "Hello World"
+
+/config/ngircd.conf
+
+fixing DNS:
+set name server in /etc/resolv.conf as router in 192.168.220.1
+did a security update
+this fixed the IRC making the service go up again
+
+Installed Suricata IDS to protect against threats, we chose Suricata specifically because its free and open source
+which allows for easy installation and 
